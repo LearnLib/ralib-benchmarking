@@ -21,6 +21,8 @@
 
    </constants>
    <globals>
+      <variable type="int" name="loginPW">0</variable>
+      <variable type="int" name="loginID">0</variable>
       <variable type="int" name="ID">0</variable>
       <variable type="int" name="PW">0</variable>
    </globals>
@@ -37,8 +39,6 @@
       <location name="id1"/> 
       <location name="id10"/> 
       <location name="id11" initial="true"/> 
-      <location name="id12"/> 
-      
    </locations>
    <transitions>
       <transition from="id0" to="id9" symbol="OOK" />
@@ -47,21 +47,22 @@
       <transition from="id5" to="id1" symbol="ILogin" params="id1,pw1"/>
       <transition from="id2" to="id5" symbol="ONOK" />
       <transition from="id5" to="id2" symbol="IRegister" params="id0,pw0"/>
+      <transition from="id6" to="id9" symbol="ONOK" >
+         <guard>loginID!=ID || loginPW!=PW</guard>
+      </transition>
       <transition from="id3" to="id9" symbol="ONOK" />
       <transition from="id9" to="id3" symbol="ILogout" />
       <transition from="id4" to="id9" symbol="ONOK" />
       <transition from="id9" to="id4" symbol="IRegister" params="id0,pw0"/>
-
+      <transition from="id6" to="id5" symbol="OOK" >
+         <guard>loginID==ID &amp;&amp; loginPW==PW</guard>
+      </transition>
       <transition from="id9" to="id6" symbol="ILogin" params="id1,pw1">
-         <guard>id1!=ID || pw1!=PW</guard>
+         <assignments>
+            <assign to="loginID">id1</assign>
+            <assign to="loginPW">pw1</assign>
+         </assignments>
       </transition>
-      <transition from="id6" to="id9" symbol="ONOK" />
-
-      <transition from="id9" to="id12" symbol="ILogin" params="id1,pw1">
-         <guard>id1==ID &amp;&amp; pw1==PW</guard>
-      </transition>
-      <transition from="id12" to="id5" symbol="OOK" />
-
       <transition from="id7" to="id11" symbol="ONOK" />
       <transition from="id11" to="id7" symbol="ILogout" />
       <transition from="id8" to="id11" symbol="ONOK" />

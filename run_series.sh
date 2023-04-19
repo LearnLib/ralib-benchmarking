@@ -5,16 +5,18 @@
 # PARSE INPUT
 
 usage="
-Usage: $(basename "$0") [-h] -s series -i iterations
+Usage: $(basename "$0") [-h] -s series -i iterations -l learner
 
 where:
     -s  series folder in experiments
     -i  iterations
+    -l learner
     "
 
 series=""
 iterations=""
-while getopts 'hs:i:' option; do
+learner=""
+while getopts 'hs:i:l:' option; do
   case "$option" in
     h) echo "$usage"
        exit
@@ -23,6 +25,8 @@ while getopts 'hs:i:' option; do
        ;;
     i) iterations=$OPTARG
        ;;
+    l) learner=$OPTARG
+       ;;       
     :) printf "missing argument for -%s\n" "$OPTARG" >&2
        echo "$usage" >&2
        exit 1
@@ -34,20 +38,16 @@ while getopts 'hs:i:' option; do
   esac
 done
 
-if [ -z "$series" -o -z "$usage" ]; then
+if [ -z "$series" -o -z "$iterations" -o -z "$learner" ]; then
   echo "$usage" >&2
   exit 1
 fi
-
-# BUILD CONFIG
-
-config=experiments/$series/config
 
 
 # EXECUTE
 echo "=================================================="
 echo "= "
-echo "= $series"
+echo "= $series with $learner" 
 echo "= "
 echo "=================================================="
 
@@ -55,7 +55,7 @@ for experiment in `find experiments/$series | grep .xml | sed 's/.xml//' | sed '
 do
 
   echo "== Running: $experiment"
-  ./run_experiment.sh -s $series -e $experiment -i $iterations
+  ./run_experiment.sh -s $series -e $experiment -i $iterations -l $learner
 
 done
 

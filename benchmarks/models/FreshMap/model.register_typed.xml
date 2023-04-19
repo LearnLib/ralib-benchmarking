@@ -3,18 +3,18 @@
    <alphabet>
       <inputs>
          <symbol name="IGet">
-            <param type="int" name="p1"/> 
+            <param type="key" name="p1"/> 
          </symbol>
          <symbol name="IPut"> 
-            <param type="int" name="p1"/> 
+            <param type="value" name="p1"/> 
          </symbol>
       </inputs>
       <outputs>
          <symbol name="OGet"> 
-            <param type="int" name="p1"/> 
+            <param type="value" name="p1"/> 
          </symbol>
          <symbol name="OPut"> 
-            <param type="int" name="p1"/> 
+            <param type="key" name="p1"/> 
          </symbol>         
          <symbol name="ONOK"/>
          <symbol name="OOK"/>
@@ -23,10 +23,10 @@
    <constants>
    </constants>
    <globals>
-      <variable type="int" name="key1">0</variable>
-      <variable type="int" name="key2">0</variable>
-      <variable type="int" name="val1">0</variable>
-      <variable type="int" name="val2">0</variable>
+      <variable type="key" name="key1">-1</variable>
+      <variable type="key" name="key2">-1</variable>
+      <variable type="value" name="val1">-1</variable>
+      <variable type="value" name="val2">-1</variable>
    </globals>
    <locations>
       <location name="ms"/>

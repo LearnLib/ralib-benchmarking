@@ -5,18 +5,20 @@
 # PARSE INPUT
 
 usage="
-Usage: $(basename "$0") [-h] -s series -e experiment -i iterations
+Usage: $(basename "$0") [-h] -s series -e experiment -i iterations -l learner
 
 where:
     -s  series folder in experiments
     -e  experiment (name of xml file w/o .xml)
+    -l  learner (slstar vs rattt)
     -i  iterations
     "
 
 series=""
 experiment=""
 iterations=""
-while getopts 'hs:e:i:' option; do
+learner=""
+while getopts 'hs:e:i:l:' option; do
   case "$option" in
     h) echo "$usage"
        exit
@@ -27,6 +29,8 @@ while getopts 'hs:e:i:' option; do
        ;;
     i) iterations=$OPTARG
        ;;
+    l) learner=$OPTARG
+       ;;   
     :) printf "missing argument for -%s\n" "$OPTARG" >&2
        echo "$usage" >&2
        exit 1
@@ -38,7 +42,7 @@ while getopts 'hs:e:i:' option; do
   esac
 done
 
-if [ -z "$series" -o -z "$experiment" -o -z "$usage" ]; then
+if [ -z "$series" -o -z "$experiment" -o -z "$iterations" -o -z "$learner" ]; then
   echo "$usage" >&2
   exit 1
 fi
@@ -47,7 +51,7 @@ fi
 
 config=experiments/$series/config
 model=experiments/$series/$experiment.xml
-results=results/$series/$experiment
+results=results/$series/$experiment-$learner
 
 # PREPARE FILES AND DIRS
 
@@ -68,7 +72,7 @@ do
   for r in `seq 1 3`
   do
 
-    java -Xmx7G -ea -jar ../lib/ralib-0.1-SNAPSHOT-jar-with-dependencies.jar iosimulator -f $config target=$model > learn.log 2>&1
+    java -Xmx7G -ea -jar ./ralib/target/ralib-0.1-SNAPSHOT-jar-with-dependencies.jar iosimulator -f $config learner=$learner target=$model > learn.log 2>&1
     if [ "0" == `ls hs_err_pid* 2> /dev/null | wc -l` ]; then 
       break;
     fi
@@ -78,11 +82,11 @@ do
 
   if [ "0" == `less learn.log | grep "= STOP =" | wc -l` ]; then 
     seed=`less learn.log | grep "RANDOM SEED"`
-    echo "Problem with iteration $c, $seed."
+    echo "Problem with iteration $c, $seed, $learner."
   fi
 
-  mv learn.log $results/learn-$c.log
-  mv model.xml $results/model-$c.xml
+  mv learn.log $results/learn-$learner-$c.log
+  mv model.xml $results/model-$learner-$c.xml
   rm -Rf hs_err_pid*
 
 done
