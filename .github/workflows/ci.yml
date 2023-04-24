@@ -11,6 +11,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
+          default: ${{ github.token }}
           ssh-key: ${{secrets.RALIB_KEY}}
           submodules: 'recursive'        
       - name: Build
