@@ -85,6 +85,8 @@ do
     echo "Problem with iteration $c, $seed, $learner."
   fi
 
+  less learn.log | grep "Last EQ Test found a counterexample"
+
   mv learn.log $results/learn-$learner-$c.log
   mv model.xml $results/model-$learner-$c.xml
   rm -Rf hs_err_pid*

@@ -57,6 +57,9 @@ do
   echo "== Running: $experiment"
   ./run_experiment.sh -s $series -e $experiment -i $iterations -l $learner
 
+  ./search_logs.sh $series $experiment $learner "Resets:"
+  ./search_logs.sh $series $experiment $learner "Inputs:"
+
 done
 
 

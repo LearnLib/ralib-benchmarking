@@ -1,7 +1,7 @@
 logging.level=WARNING
-;max.time.millis=600000
+max.time.millis=600000
 use.eqtest=true
-use.ceopt=false
+use.ceopt=true
 use.suffixopt=false
 use.fresh=false
 use.rwalk=true

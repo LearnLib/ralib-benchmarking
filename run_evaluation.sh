@@ -1,6 +1,16 @@
 
-# performance
+# basic correctness 
 
-./run_series.sh -s baseline -i 10 -l slstar
-./run_series.sh -s baseline -i 10 -l rattt
+./run_series.sh -s baseline-eq -i 2 -l slstar
+./run_series.sh -s baseline-eq -i 2 -l rattt
 
+./run_series.sh -s baseline-ineq -i 2 -l slstar
+./run_series.sh -s baseline-ineq -i 2 -l rattt
+
+# correctness with random ces
+
+./run_series.sh -s rwalk-eq -i 5 -l slstar
+./run_series.sh -s rwalk-eq -i 5 -l rattt
+
+./run_series.sh -s rwalk-ineq -i 5 -l slstar
+./run_series.sh -s rwalk-ineq -i 5 -l rattt

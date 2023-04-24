@@ -2,6 +2,6 @@
 
 cd ralib
 
-mvn -DskipTests=true assembly:assembly
+mvn assembly:assembly
 
 cd ..
