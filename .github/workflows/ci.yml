@@ -10,10 +10,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Init RaLib Submodule
+        uses: webfactory/ssh-agent@0.7.0
         with:
-          default: ${{ github.token }}
-          ssh-key: ${{secrets.RALIB_KEY}}
-          submodules: 'recursive'        
+             ssh-private-key: ${{ secrets.RALIB_KEY }}
+      - run: git submodule update --init --recursive   
       - name: Build
         run: ./build.sh
       - name: Run experiments
