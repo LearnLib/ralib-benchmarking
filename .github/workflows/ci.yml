@@ -11,7 +11,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Init RaLib Submodule
-        uses: webfactory/ssh-agent@0.8.0
+        uses: webfactory/ssh-agent@v0.8.0
         with:
              ssh-private-key: ${{ secrets.RALIB_KEY }}
       - run: git submodule update --init --recursive   
