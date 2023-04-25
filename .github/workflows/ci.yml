@@ -17,8 +17,8 @@ jobs:
       - run: git submodule update --init --recursive   
       - name: Build
         run: ./build.sh
-      - name: Run experiments
-        run: ./run_evaluation.sh
+      # - name: Run experiments
+      #  run: ./run_evaluation.sh
       - name: Archive results
         uses: actions/upload-artifact@v3
         with:
