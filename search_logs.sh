@@ -27,7 +27,7 @@ print_stat() {
     for f in ${files[@]}; do
         cat $f | grep -q "Execution terminated abnormally"
         if [ $? -eq 1 ]; then
-            val=$(cat $f | grep "$1" | sed "s/.*$2: //g" | cut -w -f 1 | sed "s/[,\}]//g") 
+            val=$(cat $f | grep "$1" | sed "s/.*$2: //g" | cut -d ' ' -f 1 | sed "s/[,\}]//g") 
             sum=$((sum+val))
             vals[${#vals[@]}]=$val
             n=$((n+1))
