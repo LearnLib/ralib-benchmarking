@@ -8,11 +8,15 @@ stats=("Resets" "Inputs")
 
 std_dev() {
     local B=("$@")
-    awk -v var="${B[*]}" 'BEGIN {n=split(var,a," ");
-        x=0;
-        y=0;
-        for (v in a) {x+=a[v]; y+=a[v]^2};
-        print sqrt(y/length(a) - (x/length(a))^2);}'
+    if [ -z "$B" ]; then
+        echo 0
+    else
+        awk -v var="${B[*]}" 'BEGIN {n=split(var,a," ");
+            x=0;
+            y=0;
+            for (v in a) {x+=a[v]; y+=a[v]^2};
+            print sqrt(y/length(a) - (x/length(a))^2);}'
+    fi
 }
 
 print_stat() {
@@ -24,16 +28,16 @@ print_stat() {
         cat $f | grep -q "Execution terminated abnormally"
         if [ $? -eq 1 ]; then
             val=$(cat $f | grep "$1" | sed "s/.*$2: \([0-9]\+\).*/\1/")
-            sum=$(($sum+$val))
+            sum=$((sum+val))
             vals[${#vals[@]}]=$val
-            n=$(($n+1))
+            n=$((n+1))
             printf "%s\t" $val
         else
             printf -- "-\t"
         fi
     done
     if [ $n -gt 0 ]; then
-        avg=$(($sum/$n))
+        avg=$((sum/n))
         std=$(std_dev "${vals[@]}" | sed "s/,/\./")
         printf "Avg: %d\tStd: %s\n" $avg $std
     else
