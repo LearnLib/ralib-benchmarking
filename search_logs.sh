@@ -27,7 +27,7 @@ print_stat() {
     for f in ${files[@]}; do
         cat $f | grep -q "Execution terminated abnormally"
         if [ $? -eq 1 ]; then
-            val=$(cat $f | grep "$1" | sed "s/.*$2: \([0-9]\+\).*/\1/")
+            val=$(cat $f | grep "$1" | sed "s/.*$2: //g" | cut -w -f 1 | sed "s/[,\}]//g") 
             sum=$((sum+val))
             vals[${#vals[@]}]=$val
             n=$((n+1))
@@ -68,7 +68,7 @@ if [ -d "results/$1/$2-$3" ]; then
     printf "CE avg length:    "
     print_stat "CE avg length" "CE avg length" $files
     for stat in ${stats[@]}; do
-        echo ${stat^^}
+        echo $stat | tr '[:lower:]' '[:upper:]'
         for index in ${!phases[@]}; do
             printf "%s" "${headers[$index]}"
             print_stat "${phases[$index]}" $stat $files
