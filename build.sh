@@ -2,6 +2,6 @@
 
 cd ralib
 
-mvn assembly:assembly
+mvn package assembly:single
 
 cd ..
