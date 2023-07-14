@@ -4,7 +4,7 @@ inputs=$2
 all_series=$(ls results)
 
 headers=("Counterexamples" "CE max length" "CE avg length" "Optimization" "Analysis" "Processing" "Total excl tests")
-learners=("rattt" "slstar")
+learners=("sllambda" "slstar" "sldt")
 
 print_averages() {
     for h in "${headers[@]}"; do

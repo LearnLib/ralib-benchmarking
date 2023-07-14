@@ -1,3 +1,4 @@
 [submodule "ralib"]
 	path = ralib
 	url = git@github.com:LearnLib/ralib.git
+	branch = rattt-dt

@@ -10,7 +10,7 @@ Usage: $(basename "$0") [-h] -s series -e experiment -i iterations -l learner
 where:
     -s  series folder in experiments
     -e  experiment (name of xml file w/o .xml)
-    -l  learner (slstar vs rattt)
+    -l  learner (slstar, sllambda or sldt)
     -i  iterations
     "
 
@@ -30,7 +30,7 @@ while getopts 'hs:e:i:l:' option; do
     i) iterations=$OPTARG
        ;;
     l) learner=$OPTARG
-       ;;   
+       ;;
     :) printf "missing argument for -%s\n" "$OPTARG" >&2
        echo "$usage" >&2
        exit 1
