@@ -5,6 +5,6 @@ solver=z3
 teachers=int:de.learnlib.ralib.tools.theories.IntegerEqualityTheory
 use.eqtest=true
 use.ceopt=false
-use.suffixopt=true
+use.suffixopt=false
 use.fresh=false
 use.rwalk=false
