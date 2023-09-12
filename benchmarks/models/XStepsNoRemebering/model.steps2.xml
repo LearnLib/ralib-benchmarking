@@ -48,7 +48,7 @@
       <transition from="finalIn" to="finalOut" symbol="a" params="p">
          <!-- guard>x==p</guard -->
       </transition>
-      <transition from="finalOut" to="finalIn" symbol="ok"/>
+      <transition from="finalOut" to="sinkIn" symbol="ok"/>
       
       <!-- transition from="finalIn" to="sinkOut" symbol="a" params="p">
          <guard>x!=p</guard>
