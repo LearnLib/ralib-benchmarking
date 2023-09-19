@@ -1,7 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-cd ralib
+( cd ralib && mvn package assembly:single )
 
-mvn package assembly:single
-
-cd ..
