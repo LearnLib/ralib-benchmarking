@@ -2,10 +2,8 @@ series=$1
 experiment=$2
 
 learners=("slstar" "sllambda" "sldt")
-# phases=("Testing" "Optimization" "Analysis" "Processing" "Total excl testing" "Total:")
-# headers=("Testing:          " "Optimization:     " "Analysis:         " "Processing:       " "Total excl tests: " "Total:            ")
-stats=("Resets" "Inputs")
-phase="Total excl testing"
+stat="Resets"
+phases=("testing:" "Total:")
 
 std_dev() {
     local B=("$@")
@@ -18,6 +16,19 @@ std_dev() {
             for (v in a) {x+=a[v]; y+=a[v]^2};
             print sqrt(y/length(a) - (x/length(a))^2);}'
     fi
+}
+
+print_val() {
+    files="$3"
+    for f in ${files[@]}; do
+        cat $f | grep -q "Execution terminated abnormally"
+        if [ $? -eq 1 ]; then
+            val=$(cat $f | grep "$1" | sed "s/.*$2: //g" | cut -d ' ' -f 1 | sed "s/[,\}]//g") 
+            printf "%5d, " $val
+            return
+        fi
+    done
+    printf ", "
 }
 
 print_stat() {
@@ -37,14 +48,14 @@ print_stat() {
     if [ $n -gt 0 ]; then
         avg=$((sum/n))
         std=$(std_dev "${vals[@]}" | sed "s/,/\./")
-        printf "%5d, %8s" $avg $std
+        printf "%5d, %6.2f, " $avg $std
     else
-        printf "--"
+        printf ", , "
     fi
 }
 
 print_count() {
-    files="$3"
+    files="$1"
     n=0
     for f in ${files[@]}; do
         line=`cat $f | grep "Last EQ Test found a counterexample: false"`
@@ -52,22 +63,33 @@ print_count() {
             n=$((n+1))
         fi
     done
-    printf "%1d/%1d" $n ${#files[@]}
+    printf "%1d/%1d, " $n ${#files[@]}
 }
 
 print_header() {
     printf "Series, "
-    printf "Experiment, "
-    for stat in ${stats[@]}; do
+    printf "system, "
+    printf "sysLoc, "
+    printf "sysTrans, "
+    printf "sysReg, "
+    printf "sysConsts, "
+    columns=("Learner" "Sum")
+    for column in ${columns[@]}; do
         for learner in ${learners[@]}; do
-          printf "$learner ($stat),, "
+          printf "${learner}${stat}${column}Avg, "
+          printf "${learner}${stat}${column}Std, "
       done
     done  
     for learner in ${learners[@]}; do
-        printf "$learner (CE),, "
+        printf "${learner}CEAvg, ${learner}CEStd, "
     done
     for learner in ${learners[@]}; do
-        printf "$learner (#), "
+        printf "${learner}LocAvg, ${learner}LocStd, "
+        printf "${learner}TransAvg, ${learner}TransStd, "
+        printf "${learner}RegAvg, ${learner}RegStd, "
+    done            
+    for learner in ${learners[@]}; do
+        printf "${learner}Succ, "
     done
     printf "\n"
 }
@@ -78,58 +100,49 @@ if [ "$1" == "-h" ]; then
 fi
 
 printf "%15s, %15s, " $series $experiment
-for stat in ${stats[@]}; do
-    for learner in ${learners[@]}; do
+
+for learner in ${learners[@]}; do
     if [ -d "results/$series/$experiment-$learner" ]; then
         files=($(ls results/$series/$experiment-$learner | grep 'log' | sed "s/\(.*\)/results\/$series\/$experiment-$learner\/\1/"))
-        print_stat "$phase" $stat $files
-    else
-        printf "--"
-    fi 
-    printf ", "   
+        print_val "Sys. Locations" "Sys. Locations" $files
+        print_val "Sys. Transitions" "Sys. Transitions" $files
+        print_val "Sys. Registers" "Sys. Registers" $files
+        print_val "Constants" "Constants" $files
+    fi
+    break
+done
+
+for phase in ${phases[@]}; do
+    for learner in ${learners[@]}; do
+        if [ -d "results/$series/$experiment-$learner" ]; then
+            files=($(ls results/$series/$experiment-$learner | grep 'log' | sed "s/\(.*\)/results\/$series\/$experiment-$learner\/\1/"))
+            print_stat "$phase" $stat $files
+        fi 
     done
 done  
 for learner in ${learners[@]}; do
     if [ -d "results/$series/$experiment-$learner" ]; then
         files=($(ls results/$series/$experiment-$learner | grep 'log' | sed "s/\(.*\)/results\/$series\/$experiment-$learner\/\1/"))
         print_stat "Counterexamples" "Counterexamples" $files
-    else
-        printf "--"
     fi 
-    printf ", "   
 done
 for learner in ${learners[@]}; do
     if [ -d "results/$series/$experiment-$learner" ]; then
         files=($(ls results/$series/$experiment-$learner | grep 'log' | sed "s/\(.*\)/results\/$series\/$experiment-$learner\/\1/"))
-        print_count "Counterexamples" "Counterexamples" $files
-    else
-        printf "--"
+        print_stat "Hyp. Locations" "Hyp. Locations" $files
+        print_stat "Hyp. Transitions" "Hyp. Transitions" $files
+        print_stat "Hyp. Registers" "Hyp. Registers" $files
     fi
-    printf ", "   
+done
+for learner in ${learners[@]}; do
+    if [ -d "results/$series/$experiment-$learner" ]; then
+        files=($(ls results/$series/$experiment-$learner | grep 'log' | sed "s/\(.*\)/results\/$series\/$experiment-$learner\/\1/"))
+        print_count $files
+    else
+        printf "0,"
+    fi
 done
 printf "\n"
-
-
-#%5d %d.4
-
-#for learner in ${!learners[@]}; do
-#    if [ -d "results/$series/$experiment-$learner" ]; then
-#        files=($(ls results/$series/$experiment-$learner | grep 'log' | sed "s/\(.*\)/results\/$series\/$experiment-$learner\/\1/"))
-#    #printf "Counterexamples:  "
-#    print_stat "Counterexamples" "Counterexamples" $files
-#    #printf "CE max length:    "
-#    print_stat "CE max length" "CE max length" $files
-#    #printf "CE avg length:    "
-#    print_stat "CE avg length" "CE avg length" $files
-#    for stat in ${stats[@]}; do
-#        echo $stat | tr '[:lower:]' '[:upper:]'
-#        for index in ${!phases[@]}; do
-#            printf "%s" "${headers[$index]}"
-#            print_stat "${phases[$index]}" $stat $files
-#        done
-#    done
-#    printf "Successful: %d/%d\n" $n ${#files[@]}
-#fi
 
 
 

@@ -1,0 +1,59 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+% Nice color sets, see see http://colorbrewer2.org/	
+\usepgfplotslibrary{colorbrewer}
+% initialize Set1-4 from colorbrewer (we're comparing 4 classes),
+\pgfplotsset{compat = 1.15, cycle list/Set1-8} 
+% Tikz is loaded automatically by pgfplots
+\usetikzlibrary{pgfplots.statistics, pgfplots.colorbrewer} 
+% provides \pgfplotstabletranspose
+\usepackage{pgfplotstable}
+\usepackage{filecontents}
+
+\begin{document}
+\begin{tikzpicture}
+	\pgfplotstableread[col sep=comma]{tacas2024-gen-actions-a2.csv}\csvdata
+	\pgfplotstableread[col sep=comma]{tacas2024-gen-actions-a4.csv}\csvdatb
+	\pgfplotstableread[col sep=comma]{tacas2024-gen-actions-a6.csv}\csvdatc
+	\pgfplotstableread[col sep=comma]{tacas2024-gen-actions-a8.csv}\csvdatd
+	\pgfplotstableread[col sep=comma]{tacas2024-gen-actions-a10.csv}\csvdate
+	\begin{axis}[
+		boxplot/draw direction = y,
+		x axis line style = {opacity=0},
+		axis x line* = bottom,
+		axis y line = left,
+		enlarge y limits,
+		ymajorgrids,
+		xtick = {2, 5, 8, 11, 14},
+		xticklabel style = {align=center, font=\small, rotate=60},
+		xticklabels = {2, 4, 6, 8, 10},
+		xtick style = {draw=none}, % Hide tick line
+		ylabel = {Resets},
+		xlabel = {Actions},
+		% ytick = {2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000},
+		% yticklabels = {2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000}
+	]
+	
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=red, draw=black] table[y index=6] {\csvdata};
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=blue, draw=black] table[y index=8] {\csvdata};
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=brown, draw=black] table[y index=10] {\csvdata};
+
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=red, draw=black] table[y index=6] {\csvdatb};
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=blue, draw=black] table[y index=8] {\csvdatb};
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=brown, draw=black] table[y index=10] {\csvdatb};
+
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=red, draw=black] table[y index=6] {\csvdatc};
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=blue, draw=black] table[y index=8] {\csvdatc};
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=brown, draw=black] table[y index=10] {\csvdatc};
+
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=red, draw=black] table[y index=6] {\csvdatd};
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=blue, draw=black] table[y index=8] {\csvdatd};
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=brown, draw=black] table[y index=10] {\csvdatd};
+
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=red, draw=black] table[y index=6] {\csvdate};
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=blue, draw=black] table[y index=8] {\csvdate};
+	\addplot+[boxplot,boxplot/box extend=0.28, fill=brown, draw=black] table[y index=10] {\csvdate};
+
+	\end{axis}
+\end{tikzpicture}
+\end{document}
