@@ -1,0 +1,280 @@
+<register-automaton>
+  <alphabet>
+    <inputs>
+      <symbol name="Ie">
+        <param name="p0" type="int"/>
+      </symbol>
+      <symbol name="Ib">
+        <param name="p0" type="int"/>
+      </symbol>
+      <symbol name="Ic">
+        <param name="p0" type="int"/>
+      </symbol>
+      <symbol name="Id">
+        <param name="p0" type="int"/>
+      </symbol>
+      <symbol name="IA">
+        <param name="p0" type="int"/>
+        <param name="p1" type="int"/>
+      </symbol>
+      <symbol name="Ia">
+        <param name="p0" type="int"/>
+      </symbol>
+      <symbol name="IB">
+        <param name="p0" type="int"/>
+        <param name="p1" type="int"/>
+      </symbol>
+    </inputs>
+    <outputs>
+      <symbol name="OAccept"/>
+      <symbol name="OReject"/>
+      <symbol name="OError"/>
+    </outputs>
+  </alphabet>
+  <constants/>
+  <globals>
+    <variable name="ra0__x0" type="int">0</variable>
+    <variable name="ra0__x1" type="int">0</variable>
+    <variable name="ra0__x2" type="int">0</variable>
+    <variable name="ra1__x0" type="int">0</variable>
+    <variable name="ra1__x1" type="int">0</variable>
+    <variable name="ra1__x2" type="int">0</variable>
+    <variable name="ra2__x0" type="int">0</variable>
+    <variable name="ra2__x1" type="int">0</variable>
+    <variable name="ra2__x2" type="int">0</variable>
+  </globals>
+  <locations>
+    <location initial="true" name="l_l_dfa_+i0_ra0__l0"/>
+    <location name="l_l_dfa_aacabb+i1_ra1__l2"/>
+    <location name="l_l_dfa_aacab"/>
+    <location name="l_l_dfa_aaca"/>
+    <location name="l_l_dfa_aacce+i1_ra1__l0"/>
+    <location name="l_l_dfa_aacc"/>
+    <location name="l_l_dfa_aac"/>
+    <location name="l_l_dfa_aa"/>
+    <location name="l_l_dfa_a+i0_ra0__l2"/>
+    <location name="l_l_dfa_e"/>
+    <location name="l_i0_ra0__l1"/>
+    <location name="l_i1_ra1__l1"/>
+    <location name="trap"/>
+    <location name="io_0_l_dfa_+i0_ra0__l0_e_l_dfa_e"/>
+    <location name="io_1_l_dfa_+i0_ra0__l0_b_l_dfa_+i0_ra0__l0"/>
+    <location name="io_2_l_dfa_+i0_ra0__l0_c_l_dfa_aacabb+i1_ra1__l2"/>
+    <location name="io_3_l_dfa_+i0_ra0__l0_d_l_dfa_a+i0_ra0__l2"/>
+    <location name="io_4_l_dfa_+i0_ra0__l0_A_i0_ra0__l1"/>
+    <location name="io_5_l_dfa_aacabb+i1_ra1__l2_a_l_dfa_aacab"/>
+    <location name="io_6_l_dfa_aacabb+i1_ra1__l2_b_l_dfa_+i0_ra0__l0"/>
+    <location name="io_7_l_dfa_aacabb+i1_ra1__l2_c_l_dfa_aacabb+i1_ra1__l2"/>
+    <location name="io_8_l_dfa_aacabb+i1_ra1__l2_d_l_dfa_aaca"/>
+    <location name="io_9_l_dfa_aacabb+i1_ra1__l2_e_l_dfa_aacab"/>
+    <location name="io_10_l_dfa_aacab_b_l_dfa_aacabb+i1_ra1__l2"/>
+    <location name="io_11_l_dfa_aacab_a_l_dfa_aaca"/>
+    <location name="io_12_l_dfa_aacab_c_l_dfa_aaca"/>
+    <location name="io_13_l_dfa_aacab_d_l_dfa_aac"/>
+    <location name="io_14_l_dfa_aacab_e_l_dfa_+i0_ra0__l0"/>
+    <location name="io_15_l_dfa_aaca_b_l_dfa_aacab"/>
+    <location name="io_16_l_dfa_aaca_a_l_dfa_aaca"/>
+    <location name="io_17_l_dfa_aaca_c_l_dfa_aaca"/>
+    <location name="io_18_l_dfa_aaca_d_l_dfa_aa"/>
+    <location name="io_19_l_dfa_aaca_e_l_dfa_aacab"/>
+    <location name="io_20_l_dfa_aacce+i1_ra1__l0_a_l_dfa_+i0_ra0__l0"/>
+    <location name="io_21_l_dfa_aacce+i1_ra1__l0_c_l_dfa_aaca"/>
+    <location name="io_22_l_dfa_aacce+i1_ra1__l0_d_l_dfa_aacabb+i1_ra1__l2"/>
+    <location name="io_23_l_dfa_aacce+i1_ra1__l0_e_l_dfa_aac"/>
+    <location name="io_24_l_dfa_aacce+i1_ra1__l0_B_i1_ra1__l1"/>
+    <location name="io_25_l_dfa_aacc_e_l_dfa_aacce+i1_ra1__l0"/>
+    <location name="io_26_l_dfa_aacc_a_l_dfa_aacabb+i1_ra1__l2"/>
+    <location name="io_27_l_dfa_aacc_b_l_dfa_aacabb+i1_ra1__l2"/>
+    <location name="io_28_l_dfa_aacc_c_l_dfa_aac"/>
+    <location name="io_29_l_dfa_aacc_d_l_dfa_aacabb+i1_ra1__l2"/>
+    <location name="io_30_l_dfa_aac_a_l_dfa_aaca"/>
+    <location name="io_31_l_dfa_aac_c_l_dfa_aacc"/>
+    <location name="io_32_l_dfa_aac_b_l_dfa_+i0_ra0__l0"/>
+    <location name="io_33_l_dfa_aac_d_l_dfa_+i0_ra0__l0"/>
+    <location name="io_34_l_dfa_aac_e_l_dfa_aac"/>
+    <location name="io_35_l_dfa_aa_c_l_dfa_aac"/>
+    <location name="io_36_l_dfa_aa_a_l_dfa_aa"/>
+    <location name="io_37_l_dfa_aa_b_l_dfa_a+i0_ra0__l2"/>
+    <location name="io_38_l_dfa_aa_d_l_dfa_+i0_ra0__l0"/>
+    <location name="io_39_l_dfa_aa_e_l_dfa_aacc"/>
+    <location name="io_40_l_dfa_a+i0_ra0__l2_a_l_dfa_aa"/>
+    <location name="io_41_l_dfa_a+i0_ra0__l2_b_l_dfa_aacc"/>
+    <location name="io_42_l_dfa_a+i0_ra0__l2_c_l_dfa_a+i0_ra0__l2"/>
+    <location name="io_43_l_dfa_a+i0_ra0__l2_d_l_dfa_a+i0_ra0__l2"/>
+    <location name="io_44_l_dfa_a+i0_ra0__l2_e_l_dfa_aac"/>
+    <location name="io_45_l_dfa_e_a_l_dfa_aacab"/>
+    <location name="io_46_l_dfa_e_b_l_dfa_aacab"/>
+    <location name="io_47_l_dfa_e_c_l_dfa_a+i0_ra0__l2"/>
+    <location name="io_48_l_dfa_e_d_l_dfa_aacc"/>
+    <location name="io_49_l_dfa_e_e_l_dfa_aa"/>
+    <location name="io_50_i0_ra0__l1_A_l_dfa_a+i0_ra0__l2"/>
+    <location name="io_51_i1_ra1__l1_B_l_dfa_aacabb+i1_ra1__l2"/>
+    <location name="io_trap"/>
+  </locations>
+  <transitions>
+    <transition from="l_l_dfa_+i0_ra0__l0" params="p0" symbol="Ie" to="io_0_l_dfa_+i0_ra0__l0_e_l_dfa_e"/>
+    <transition from="io_0_l_dfa_+i0_ra0__l0_e_l_dfa_e" symbol="OAccept" to="l_l_dfa_e"/>
+    <transition from="l_l_dfa_+i0_ra0__l0" params="p0" symbol="Ib" to="io_1_l_dfa_+i0_ra0__l0_b_l_dfa_+i0_ra0__l0"/>
+    <transition from="io_1_l_dfa_+i0_ra0__l0_b_l_dfa_+i0_ra0__l0" symbol="OReject" to="l_l_dfa_+i0_ra0__l0"/>
+    <transition from="l_l_dfa_+i0_ra0__l0" params="p0" symbol="Ic" to="io_2_l_dfa_+i0_ra0__l0_c_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="io_2_l_dfa_+i0_ra0__l0_c_l_dfa_aacabb+i1_ra1__l2" symbol="OAccept" to="l_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="l_l_dfa_+i0_ra0__l0" params="p0" symbol="Id" to="io_3_l_dfa_+i0_ra0__l0_d_l_dfa_a+i0_ra0__l2"/>
+    <transition from="io_3_l_dfa_+i0_ra0__l0_d_l_dfa_a+i0_ra0__l2" symbol="OReject" to="l_l_dfa_a+i0_ra0__l2"/>
+    <transition from="l_l_dfa_+i0_ra0__l0" params="p0,p1" symbol="IA" to="io_4_l_dfa_+i0_ra0__l0_A_i0_ra0__l1">
+      <assignments>
+        <assign to="ra0__x0">p0</assign>
+        <assign to="ra0__x1">p1</assign>
+      </assignments>
+    </transition>
+    <transition from="io_4_l_dfa_+i0_ra0__l0_A_i0_ra0__l1" symbol="OReject" to="l_i0_ra0__l1"/>
+    <transition from="l_l_dfa_aacabb+i1_ra1__l2" params="p0" symbol="Ia" to="io_5_l_dfa_aacabb+i1_ra1__l2_a_l_dfa_aacab"/>
+    <transition from="io_5_l_dfa_aacabb+i1_ra1__l2_a_l_dfa_aacab" symbol="OReject" to="l_l_dfa_aacab"/>
+    <transition from="l_l_dfa_aacabb+i1_ra1__l2" params="p0" symbol="Ib" to="io_6_l_dfa_aacabb+i1_ra1__l2_b_l_dfa_+i0_ra0__l0"/>
+    <transition from="io_6_l_dfa_aacabb+i1_ra1__l2_b_l_dfa_+i0_ra0__l0" symbol="OReject" to="l_l_dfa_+i0_ra0__l0"/>
+    <transition from="l_l_dfa_aacabb+i1_ra1__l2" params="p0" symbol="Ic" to="io_7_l_dfa_aacabb+i1_ra1__l2_c_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="io_7_l_dfa_aacabb+i1_ra1__l2_c_l_dfa_aacabb+i1_ra1__l2" symbol="OAccept" to="l_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="l_l_dfa_aacabb+i1_ra1__l2" params="p0" symbol="Id" to="io_8_l_dfa_aacabb+i1_ra1__l2_d_l_dfa_aaca"/>
+    <transition from="io_8_l_dfa_aacabb+i1_ra1__l2_d_l_dfa_aaca" symbol="OReject" to="l_l_dfa_aaca"/>
+    <transition from="l_l_dfa_aacabb+i1_ra1__l2" params="p0" symbol="Ie" to="io_9_l_dfa_aacabb+i1_ra1__l2_e_l_dfa_aacab"/>
+    <transition from="io_9_l_dfa_aacabb+i1_ra1__l2_e_l_dfa_aacab" symbol="OReject" to="l_l_dfa_aacab"/>
+    <transition from="l_l_dfa_aacab" params="p0" symbol="Ib" to="io_10_l_dfa_aacab_b_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="io_10_l_dfa_aacab_b_l_dfa_aacabb+i1_ra1__l2" symbol="OAccept" to="l_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="l_l_dfa_aacab" params="p0" symbol="Ia" to="io_11_l_dfa_aacab_a_l_dfa_aaca"/>
+    <transition from="io_11_l_dfa_aacab_a_l_dfa_aaca" symbol="OReject" to="l_l_dfa_aaca"/>
+    <transition from="l_l_dfa_aacab" params="p0" symbol="Ic" to="io_12_l_dfa_aacab_c_l_dfa_aaca"/>
+    <transition from="io_12_l_dfa_aacab_c_l_dfa_aaca" symbol="OReject" to="l_l_dfa_aaca"/>
+    <transition from="l_l_dfa_aacab" params="p0" symbol="Id" to="io_13_l_dfa_aacab_d_l_dfa_aac"/>
+    <transition from="io_13_l_dfa_aacab_d_l_dfa_aac" symbol="OAccept" to="l_l_dfa_aac"/>
+    <transition from="l_l_dfa_aacab" params="p0" symbol="Ie" to="io_14_l_dfa_aacab_e_l_dfa_+i0_ra0__l0"/>
+    <transition from="io_14_l_dfa_aacab_e_l_dfa_+i0_ra0__l0" symbol="OReject" to="l_l_dfa_+i0_ra0__l0"/>
+    <transition from="l_l_dfa_aaca" params="p0" symbol="Ib" to="io_15_l_dfa_aaca_b_l_dfa_aacab"/>
+    <transition from="io_15_l_dfa_aaca_b_l_dfa_aacab" symbol="OReject" to="l_l_dfa_aacab"/>
+    <transition from="l_l_dfa_aaca" params="p0" symbol="Ia" to="io_16_l_dfa_aaca_a_l_dfa_aaca"/>
+    <transition from="io_16_l_dfa_aaca_a_l_dfa_aaca" symbol="OReject" to="l_l_dfa_aaca"/>
+    <transition from="l_l_dfa_aaca" params="p0" symbol="Ic" to="io_17_l_dfa_aaca_c_l_dfa_aaca"/>
+    <transition from="io_17_l_dfa_aaca_c_l_dfa_aaca" symbol="OReject" to="l_l_dfa_aaca"/>
+    <transition from="l_l_dfa_aaca" params="p0" symbol="Id" to="io_18_l_dfa_aaca_d_l_dfa_aa"/>
+    <transition from="io_18_l_dfa_aaca_d_l_dfa_aa" symbol="OAccept" to="l_l_dfa_aa"/>
+    <transition from="l_l_dfa_aaca" params="p0" symbol="Ie" to="io_19_l_dfa_aaca_e_l_dfa_aacab"/>
+    <transition from="io_19_l_dfa_aaca_e_l_dfa_aacab" symbol="OReject" to="l_l_dfa_aacab"/>
+    <transition from="l_l_dfa_aacce+i1_ra1__l0" params="p0" symbol="Ia" to="io_20_l_dfa_aacce+i1_ra1__l0_a_l_dfa_+i0_ra0__l0"/>
+    <transition from="io_20_l_dfa_aacce+i1_ra1__l0_a_l_dfa_+i0_ra0__l0" symbol="OReject" to="l_l_dfa_+i0_ra0__l0"/>
+    <transition from="l_l_dfa_aacce+i1_ra1__l0" params="p0" symbol="Ic" to="io_21_l_dfa_aacce+i1_ra1__l0_c_l_dfa_aaca"/>
+    <transition from="io_21_l_dfa_aacce+i1_ra1__l0_c_l_dfa_aaca" symbol="OReject" to="l_l_dfa_aaca"/>
+    <transition from="l_l_dfa_aacce+i1_ra1__l0" params="p0" symbol="Id" to="io_22_l_dfa_aacce+i1_ra1__l0_d_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="io_22_l_dfa_aacce+i1_ra1__l0_d_l_dfa_aacabb+i1_ra1__l2" symbol="OAccept" to="l_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="l_l_dfa_aacce+i1_ra1__l0" params="p0" symbol="Ie" to="io_23_l_dfa_aacce+i1_ra1__l0_e_l_dfa_aac"/>
+    <transition from="io_23_l_dfa_aacce+i1_ra1__l0_e_l_dfa_aac" symbol="OAccept" to="l_l_dfa_aac"/>
+    <transition from="l_l_dfa_aacce+i1_ra1__l0" params="p0,p1" symbol="IB" to="io_24_l_dfa_aacce+i1_ra1__l0_B_i1_ra1__l1">
+      <assignments>
+        <assign to="ra1__x0">p0</assign>
+        <assign to="ra1__x1">p1</assign>
+      </assignments>
+    </transition>
+    <transition from="io_24_l_dfa_aacce+i1_ra1__l0_B_i1_ra1__l1" symbol="OReject" to="l_i1_ra1__l1"/>
+    <transition from="l_l_dfa_aacc" params="p0" symbol="Ie" to="io_25_l_dfa_aacc_e_l_dfa_aacce+i1_ra1__l0"/>
+    <transition from="io_25_l_dfa_aacc_e_l_dfa_aacce+i1_ra1__l0" symbol="OAccept" to="l_l_dfa_aacce+i1_ra1__l0"/>
+    <transition from="l_l_dfa_aacc" params="p0" symbol="Ia" to="io_26_l_dfa_aacc_a_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="io_26_l_dfa_aacc_a_l_dfa_aacabb+i1_ra1__l2" symbol="OAccept" to="l_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="l_l_dfa_aacc" params="p0" symbol="Ib" to="io_27_l_dfa_aacc_b_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="io_27_l_dfa_aacc_b_l_dfa_aacabb+i1_ra1__l2" symbol="OAccept" to="l_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="l_l_dfa_aacc" params="p0" symbol="Ic" to="io_28_l_dfa_aacc_c_l_dfa_aac"/>
+    <transition from="io_28_l_dfa_aacc_c_l_dfa_aac" symbol="OAccept" to="l_l_dfa_aac"/>
+    <transition from="l_l_dfa_aacc" params="p0" symbol="Id" to="io_29_l_dfa_aacc_d_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="io_29_l_dfa_aacc_d_l_dfa_aacabb+i1_ra1__l2" symbol="OAccept" to="l_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="l_l_dfa_aac" params="p0" symbol="Ia" to="io_30_l_dfa_aac_a_l_dfa_aaca"/>
+    <transition from="io_30_l_dfa_aac_a_l_dfa_aaca" symbol="OReject" to="l_l_dfa_aaca"/>
+    <transition from="l_l_dfa_aac" params="p0" symbol="Ic" to="io_31_l_dfa_aac_c_l_dfa_aacc"/>
+    <transition from="io_31_l_dfa_aac_c_l_dfa_aacc" symbol="OReject" to="l_l_dfa_aacc"/>
+    <transition from="l_l_dfa_aac" params="p0" symbol="Ib" to="io_32_l_dfa_aac_b_l_dfa_+i0_ra0__l0"/>
+    <transition from="io_32_l_dfa_aac_b_l_dfa_+i0_ra0__l0" symbol="OReject" to="l_l_dfa_+i0_ra0__l0"/>
+    <transition from="l_l_dfa_aac" params="p0" symbol="Id" to="io_33_l_dfa_aac_d_l_dfa_+i0_ra0__l0"/>
+    <transition from="io_33_l_dfa_aac_d_l_dfa_+i0_ra0__l0" symbol="OReject" to="l_l_dfa_+i0_ra0__l0"/>
+    <transition from="l_l_dfa_aac" params="p0" symbol="Ie" to="io_34_l_dfa_aac_e_l_dfa_aac"/>
+    <transition from="io_34_l_dfa_aac_e_l_dfa_aac" symbol="OAccept" to="l_l_dfa_aac"/>
+    <transition from="l_l_dfa_aa" params="p0" symbol="Ic" to="io_35_l_dfa_aa_c_l_dfa_aac"/>
+    <transition from="io_35_l_dfa_aa_c_l_dfa_aac" symbol="OAccept" to="l_l_dfa_aac"/>
+    <transition from="l_l_dfa_aa" params="p0" symbol="Ia" to="io_36_l_dfa_aa_a_l_dfa_aa"/>
+    <transition from="io_36_l_dfa_aa_a_l_dfa_aa" symbol="OAccept" to="l_l_dfa_aa"/>
+    <transition from="l_l_dfa_aa" params="p0" symbol="Ib" to="io_37_l_dfa_aa_b_l_dfa_a+i0_ra0__l2"/>
+    <transition from="io_37_l_dfa_aa_b_l_dfa_a+i0_ra0__l2" symbol="OReject" to="l_l_dfa_a+i0_ra0__l2"/>
+    <transition from="l_l_dfa_aa" params="p0" symbol="Id" to="io_38_l_dfa_aa_d_l_dfa_+i0_ra0__l0"/>
+    <transition from="io_38_l_dfa_aa_d_l_dfa_+i0_ra0__l0" symbol="OReject" to="l_l_dfa_+i0_ra0__l0"/>
+    <transition from="l_l_dfa_aa" params="p0" symbol="Ie" to="io_39_l_dfa_aa_e_l_dfa_aacc"/>
+    <transition from="io_39_l_dfa_aa_e_l_dfa_aacc" symbol="OReject" to="l_l_dfa_aacc"/>
+    <transition from="l_l_dfa_a+i0_ra0__l2" params="p0" symbol="Ia" to="io_40_l_dfa_a+i0_ra0__l2_a_l_dfa_aa"/>
+    <transition from="io_40_l_dfa_a+i0_ra0__l2_a_l_dfa_aa" symbol="OAccept" to="l_l_dfa_aa"/>
+    <transition from="l_l_dfa_a+i0_ra0__l2" params="p0" symbol="Ib" to="io_41_l_dfa_a+i0_ra0__l2_b_l_dfa_aacc"/>
+    <transition from="io_41_l_dfa_a+i0_ra0__l2_b_l_dfa_aacc" symbol="OReject" to="l_l_dfa_aacc"/>
+    <transition from="l_l_dfa_a+i0_ra0__l2" params="p0" symbol="Ic" to="io_42_l_dfa_a+i0_ra0__l2_c_l_dfa_a+i0_ra0__l2"/>
+    <transition from="io_42_l_dfa_a+i0_ra0__l2_c_l_dfa_a+i0_ra0__l2" symbol="OReject" to="l_l_dfa_a+i0_ra0__l2"/>
+    <transition from="l_l_dfa_a+i0_ra0__l2" params="p0" symbol="Id" to="io_43_l_dfa_a+i0_ra0__l2_d_l_dfa_a+i0_ra0__l2"/>
+    <transition from="io_43_l_dfa_a+i0_ra0__l2_d_l_dfa_a+i0_ra0__l2" symbol="OReject" to="l_l_dfa_a+i0_ra0__l2"/>
+    <transition from="l_l_dfa_a+i0_ra0__l2" params="p0" symbol="Ie" to="io_44_l_dfa_a+i0_ra0__l2_e_l_dfa_aac"/>
+    <transition from="io_44_l_dfa_a+i0_ra0__l2_e_l_dfa_aac" symbol="OAccept" to="l_l_dfa_aac"/>
+    <transition from="l_l_dfa_e" params="p0" symbol="Ia" to="io_45_l_dfa_e_a_l_dfa_aacab"/>
+    <transition from="io_45_l_dfa_e_a_l_dfa_aacab" symbol="OReject" to="l_l_dfa_aacab"/>
+    <transition from="l_l_dfa_e" params="p0" symbol="Ib" to="io_46_l_dfa_e_b_l_dfa_aacab"/>
+    <transition from="io_46_l_dfa_e_b_l_dfa_aacab" symbol="OReject" to="l_l_dfa_aacab"/>
+    <transition from="l_l_dfa_e" params="p0" symbol="Ic" to="io_47_l_dfa_e_c_l_dfa_a+i0_ra0__l2"/>
+    <transition from="io_47_l_dfa_e_c_l_dfa_a+i0_ra0__l2" symbol="OReject" to="l_l_dfa_a+i0_ra0__l2"/>
+    <transition from="l_l_dfa_e" params="p0" symbol="Id" to="io_48_l_dfa_e_d_l_dfa_aacc"/>
+    <transition from="io_48_l_dfa_e_d_l_dfa_aacc" symbol="OReject" to="l_l_dfa_aacc"/>
+    <transition from="l_l_dfa_e" params="p0" symbol="Ie" to="io_49_l_dfa_e_e_l_dfa_aa"/>
+    <transition from="io_49_l_dfa_e_e_l_dfa_aa" symbol="OAccept" to="l_l_dfa_aa"/>
+    <transition from="l_i0_ra0__l1" params="p0,p1" symbol="IA" to="io_50_i0_ra0__l1_A_l_dfa_a+i0_ra0__l2">
+      <guard>ra0__x0==p0&amp;&amp;ra0__x1==p1</guard>
+    </transition>
+    <transition from="io_50_i0_ra0__l1_A_l_dfa_a+i0_ra0__l2" symbol="OReject" to="l_l_dfa_a+i0_ra0__l2"/>
+    <transition from="l_i1_ra1__l1" params="p0,p1" symbol="IB" to="io_51_i1_ra1__l1_B_l_dfa_aacabb+i1_ra1__l2">
+      <guard>ra1__x0==p0&amp;&amp;ra1__x1==p1</guard>
+    </transition>
+    <transition from="io_51_i1_ra1__l1_B_l_dfa_aacabb+i1_ra1__l2" symbol="OAccept" to="l_l_dfa_aacabb+i1_ra1__l2"/>
+    <transition from="l_l_dfa_+i0_ra0__l0" params="p0" symbol="Ia" to="io_trap"/>
+    <transition from="l_l_dfa_+i0_ra0__l0" params="p0,p1" symbol="IB" to="io_trap"/>
+    <transition from="l_l_dfa_aacabb+i1_ra1__l2" params="p0,p1" symbol="IA" to="io_trap"/>
+    <transition from="l_l_dfa_aacabb+i1_ra1__l2" params="p0,p1" symbol="IB" to="io_trap"/>
+    <transition from="l_l_dfa_aacab" params="p0,p1" symbol="IA" to="io_trap"/>
+    <transition from="l_l_dfa_aacab" params="p0,p1" symbol="IB" to="io_trap"/>
+    <transition from="l_l_dfa_aaca" params="p0,p1" symbol="IA" to="io_trap"/>
+    <transition from="l_l_dfa_aaca" params="p0,p1" symbol="IB" to="io_trap"/>
+    <transition from="l_l_dfa_aacce+i1_ra1__l0" params="p0" symbol="Ib" to="io_trap"/>
+    <transition from="l_l_dfa_aacce+i1_ra1__l0" params="p0,p1" symbol="IA" to="io_trap"/>
+    <transition from="l_l_dfa_aacc" params="p0,p1" symbol="IA" to="io_trap"/>
+    <transition from="l_l_dfa_aacc" params="p0,p1" symbol="IB" to="io_trap"/>
+    <transition from="l_l_dfa_aac" params="p0,p1" symbol="IA" to="io_trap"/>
+    <transition from="l_l_dfa_aac" params="p0,p1" symbol="IB" to="io_trap"/>
+    <transition from="l_l_dfa_aa" params="p0,p1" symbol="IA" to="io_trap"/>
+    <transition from="l_l_dfa_aa" params="p0,p1" symbol="IB" to="io_trap"/>
+    <transition from="l_l_dfa_a+i0_ra0__l2" params="p0,p1" symbol="IA" to="io_trap"/>
+    <transition from="l_l_dfa_a+i0_ra0__l2" params="p0,p1" symbol="IB" to="io_trap"/>
+    <transition from="l_l_dfa_e" params="p0,p1" symbol="IA" to="io_trap"/>
+    <transition from="l_l_dfa_e" params="p0,p1" symbol="IB" to="io_trap"/>
+    <transition from="l_i0_ra0__l1" params="p0" symbol="Ie" to="io_trap"/>
+    <transition from="l_i0_ra0__l1" params="p0" symbol="Ib" to="io_trap"/>
+    <transition from="l_i0_ra0__l1" params="p0" symbol="Ic" to="io_trap"/>
+    <transition from="l_i0_ra0__l1" params="p0" symbol="Id" to="io_trap"/>
+    <transition from="l_i0_ra0__l1" params="p0,p1" symbol="IA" to="io_trap">
+      <guard>ra0__x0!=p0||ra0__x1!=p1</guard>
+    </transition>
+    <transition from="l_i0_ra0__l1" params="p0" symbol="Ia" to="io_trap"/>
+    <transition from="l_i0_ra0__l1" params="p0,p1" symbol="IB" to="io_trap"/>
+    <transition from="l_i1_ra1__l1" params="p0" symbol="Ie" to="io_trap"/>
+    <transition from="l_i1_ra1__l1" params="p0" symbol="Ib" to="io_trap"/>
+    <transition from="l_i1_ra1__l1" params="p0" symbol="Ic" to="io_trap"/>
+    <transition from="l_i1_ra1__l1" params="p0" symbol="Id" to="io_trap"/>
+    <transition from="l_i1_ra1__l1" params="p0,p1" symbol="IA" to="io_trap"/>
+    <transition from="l_i1_ra1__l1" params="p0" symbol="Ia" to="io_trap"/>
+    <transition from="l_i1_ra1__l1" params="p0,p1" symbol="IB" to="io_trap">
+      <guard>ra1__x0!=p0||ra1__x1!=p1</guard>
+    </transition>
+    <transition from="trap" params="p0" symbol="Ie" to="io_trap"/>
+    <transition from="trap" params="p0" symbol="Ib" to="io_trap"/>
+    <transition from="trap" params="p0" symbol="Ic" to="io_trap"/>
+    <transition from="trap" params="p0" symbol="Id" to="io_trap"/>
+    <transition from="trap" params="p0,p1" symbol="IA" to="io_trap"/>
+    <transition from="trap" params="p0" symbol="Ia" to="io_trap"/>
+    <transition from="trap" params="p0,p1" symbol="IB" to="io_trap"/>
+    <transition from="io_trap" symbol="OError" to="trap"/>
+  </transitions>
+</register-automaton>
