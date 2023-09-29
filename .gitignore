@@ -15,4 +15,6 @@ results/*
 **/*.DS_Store
 **/*.bak
 **/*.tdo
-
+plots/*.csv
+plots/*.dvi
+plots/*.pdf
