@@ -1,18 +1,13 @@
 \documentclass{standalone}
 \usepackage{pgfplots}
-% Nice color sets, see see http://colorbrewer2.org/	
 \usepgfplotslibrary{colorbrewer}
-% initialize Set1-4 from colorbrewer (we're comparing 4 classes),
 \pgfplotsset{compat = 1.15, cycle list/Set1-8} 
-% Tikz is loaded automatically by pgfplots
 \usetikzlibrary{pgfplots.statistics, pgfplots.colorbrewer} 
-% provides \pgfplotstabletranspose
 \usepackage{pgfplotstable}
 \usepackage{filecontents}
 
 \begin{document}
 \begin{tikzpicture}
-%	\pgfplotstableread[col sep=comma]{tacas2024-gen-registers-n-r10.csv}\csvdata
 	\pgfplotstableread[col sep=comma]{tacas2024-gen-registers-n-r020.csv}\csvdata
 	\pgfplotstableread[col sep=comma]{tacas2024-gen-registers-n-r040.csv}\csvdatb
 	\pgfplotstableread[col sep=comma]{tacas2024-gen-registers-n-r060.csv}\csvdatc
