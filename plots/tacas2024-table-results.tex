@@ -13,13 +13,17 @@
 \label{tbl:wikiresults}
 \centering
 \resizebox{.99\textwidth}{!}{
-\begin{tabular}{|lrrrr|rrr|rrr|rrr|}
+\begin{tabular}{|lrrrr|rrr|rrr|rrr|rrr|rrr|}
 \hline
 \multicolumn{5}{|l|}{\textbf{Target}} &
 \multicolumn{3}{c|}{\textbf{Tests Learner}} &
 \multicolumn{3}{c|}{\textbf{Tests Learner+Tester}} &
-\multicolumn{3}{c|}{\textbf{Counterexamples}} \\
+\multicolumn{3}{c|}{\textbf{Counterexamples}} &
+\multicolumn{3}{c|}{\textbf{WCT Learn [ms]}} &
+\multicolumn{3}{c|}{\textbf{WCT Test [ms]}} \\
  & $|Q|$ & $|\Gamma|$ & $|X|$ & $|C|$ &
+\multicolumn{1}{|c}{\slstarTbl} & \multicolumn{1}{c}{\sllambdaTbl} & \multicolumn{1}{c|}{\sldtTbl} &
+\multicolumn{1}{|c}{\slstarTbl} & \multicolumn{1}{c}{\sllambdaTbl} & \multicolumn{1}{c|}{\sldtTbl} &
 \multicolumn{1}{|c}{\slstarTbl} & \multicolumn{1}{c}{\sllambdaTbl} & \multicolumn{1}{c|}{\sldtTbl} &
 \multicolumn{1}{|c}{\slstarTbl} & \multicolumn{1}{c}{\sllambdaTbl} & \multicolumn{1}{c|}{\sldtTbl} &
 \multicolumn{1}{|c}{\slstarTbl} & \multicolumn{1}{c}{\sllambdaTbl} & \multicolumn{1}{c|}{\sldtTbl} \\
@@ -38,7 +42,13 @@
   \sldtResetsSumAvg & % \sldtResetsSumStd & 
   \slstarCEAvg & % \slstarCEStd & 
   \sllambdaCEAvg & % \sllambdaCEStd & 
-  \sldtCEAvg % & \sldtCEStd  
+  \sldtCEAvg  & % \sldtCEStd  
+  \slstarwctLearnAvg &
+  \sllambdawctLearnAvg &
+  \sldtwctLearnAvg &
+  \slstarwctTestAvg &
+  \sllambdawctTestAvg &
+  \sldtwctTestAvg    
 }
 \end{tabular}
 }

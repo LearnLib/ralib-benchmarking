@@ -19,19 +19,20 @@
 	\pgfplotstableread[col sep=comma]{tacas2024-gen-actions-a10.csv}\csvdate
 	\begin{axis}[
 		boxplot/draw direction = y,
-		x axis line style = {opacity=0},
-		axis x line* = bottom,
-		axis y line = left,
+		scaled ticks=false,
+		% x axis line style = {opacity=0},
+		% axis x line* = bottom,
+		% axis y line = left,
 		enlarge y limits,
-		ymajorgrids,
+		% ymajorgrids,
 		xtick = {2, 5, 8, 11, 14},
 		xticklabel style = {align=center, font=\small, rotate=60},
 		xticklabels = {2, 4, 6, 8, 10},
 		xtick style = {draw=none}, % Hide tick line
 		ylabel = {Resets},
 		xlabel = {Actions},
-		% ytick = {2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000},
-		% yticklabels = {2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000}
+		ytick = {0, 10000,20000,30000},
+		yticklabels = {0, 10k, 20k, 30k}
 	]
 	
 	\addplot+[boxplot,boxplot/box extend=0.28, fill=red, draw=black] table[y index=6] {\csvdata};

@@ -89,6 +89,10 @@ print_header() {
         printf "${learner}RegAvg, ${learner}RegStd, "
     done            
     for learner in ${learners[@]}; do
+        printf "${learner}wctLearnAvg, ${learner}wctLearnStd, "
+        printf "${learner}wctTestAvg, ${learner}wctTestStd, "
+    done            
+    for learner in ${learners[@]}; do
         printf "${learner}Succ, "
     done
     printf "\n"
@@ -134,6 +138,14 @@ for learner in ${learners[@]}; do
         print_stat "Hyp. Registers" "Hyp. Registers" $files
     fi
 done
+for learner in ${learners[@]}; do
+    if [ -d "results/$series/$experiment-$learner" ]; then
+        files=($(ls results/$series/$experiment-$learner | grep 'log' | sed "s/\(.*\)/results\/$series\/$experiment-$learner\/\1/"))
+        print_stat "learning \[ms\]" "learning \[ms\]" $files
+        print_stat "ce searching \[ms\]" "ce searching \[ms\]" $files
+    fi
+done
+
 for learner in ${learners[@]}; do
     if [ -d "results/$series/$experiment-$learner" ]; then
         files=($(ls results/$series/$experiment-$learner | grep 'log' | sed "s/\(.*\)/results\/$series\/$experiment-$learner\/\1/"))
