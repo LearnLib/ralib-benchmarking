@@ -4,6 +4,6 @@
 
 cd plots
 
-latexmk tacas2024-table-results.tex
+latexmk -pdf tacas2024-table-results.tex
 
 cd ..

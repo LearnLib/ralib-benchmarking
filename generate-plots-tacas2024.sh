@@ -8,11 +8,11 @@ less plots/tacas2024-summary-generated.csv | grep "gen-locations" | grep "Q-40" 
 less plots/tacas2024-summary-generated.csv | grep "gen-locations" | grep "Q-50" > plots/tacas2024-gen-locations-q50.csv
 less plots/tacas2024-summary-generated.csv | grep "gen-locations" | grep "Q-60" > plots/tacas2024-gen-locations-q60.csv
 
-less plots/tacas2024-summary-generated.csv | grep "gen-actions" | grep "A-2" > plots/tacas2024-gen-actions-a2.csv
-less plots/tacas2024-summary-generated.csv | grep "gen-actions" | grep "A-4" > plots/tacas2024-gen-actions-a4.csv
-less plots/tacas2024-summary-generated.csv | grep "gen-actions" | grep "A-6" > plots/tacas2024-gen-actions-a6.csv
-less plots/tacas2024-summary-generated.csv | grep "gen-actions" | grep "A-8" > plots/tacas2024-gen-actions-a8.csv
-less plots/tacas2024-summary-generated.csv | grep "gen-actions" | grep "A-10" > plots/tacas2024-gen-actions-a10.csv
+less plots/tacas2024-summary-generated.csv | grep "gen-actions" | grep "A-4" | egrep -v "A-44" > plots/tacas2024-gen-actions-a4.csv
+less plots/tacas2024-summary-generated.csv | grep "gen-actions" | grep "A-14" > plots/tacas2024-gen-actions-a14.csv
+less plots/tacas2024-summary-generated.csv | grep "gen-actions" | grep "A-24" > plots/tacas2024-gen-actions-a24.csv
+less plots/tacas2024-summary-generated.csv | grep "gen-actions" | grep "A-34" > plots/tacas2024-gen-actions-a34.csv
+less plots/tacas2024-summary-generated.csv | grep "gen-actions" | grep "A-44" > plots/tacas2024-gen-actions-a44.csv
 
 less plots/tacas2024-summary-generated.csv | grep "gen-registers" | egrep -v "noopt" | grep "R-0.20" > plots/tacas2024-gen-registers-r020.csv
 less plots/tacas2024-summary-generated.csv | grep "gen-registers" | egrep -v "noopt" | grep "R-0.40" > plots/tacas2024-gen-registers-r040.csv
@@ -27,17 +27,21 @@ less plots/tacas2024-summary-generated.csv | grep "gen-registers-noopt" | grep "
 less plots/tacas2024-summary-generated.csv | grep "gen-registers-noopt" | grep "R-1.00" > plots/tacas2024-gen-registers-n-r100.csv
 
 head -n 1 plots/tacas2024-summary-generated.csv > plots/dtls-models-mc.csv
-less plots/tacas2024-summary-generated.csv | grep "dtls-baseline-eq" >> plots/dtls-models-mc.csv
+less plots/tacas2024-summary-generated.csv | grep "dtls-baseline-eq" | egrep -v "noopt" >> plots/dtls-models-mc.csv
+
+head -n 1 plots/tacas2024-summary-generated.csv > plots/dtls-models-mc-noopt.csv
+less plots/tacas2024-summary-generated.csv | grep "dtls-baseline-eq-noopt" >> plots/dtls-models-mc-noopt.csv
 
 cd plots
 
-latexmk boxplot-gen-locations.tex
-latexmk boxplot-gen-actions.tex
-latexmk boxplot-gen-registers.tex
-latexmk boxplot-gen-registers-noopt.tex
+latexmk -pdf boxplot-gen-locations.tex
+latexmk -pdf boxplot-gen-actions.tex
+latexmk -pdf boxplot-gen-registers.tex
+latexmk -pdf boxplot-gen-registers-noopt.tex
 
-latexmk plot-dtls-resets.tex
-latexmk plot-dtls-counterexamples.tex
-latexmk plot-dtls-wct.tex
+latexmk -pdf plot-dtls-resets.tex
+latexmk -pdf plot-dtls-resets-noopt.tex
+latexmk -pdf plot-dtls-counterexamples.tex
+latexmk -pdf plot-dtls-wct.tex
 
 cd ..

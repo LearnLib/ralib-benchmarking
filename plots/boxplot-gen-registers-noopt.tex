@@ -6,6 +6,10 @@
 \usepackage{pgfplotstable}
 \usepackage{filecontents}
 
+\newcommand{\sldtTbl}{${SL}^{CT}$}
+\newcommand{\sllambdaTbl}{${SL}^{\lambda}$}
+\newcommand{\slstarTbl}{${SL}^{*}$}
+
 \begin{document}
 \begin{tikzpicture}
 	\pgfplotstableread[col sep=comma]{tacas2024-gen-registers-n-r020.csv}\csvdata
@@ -28,7 +32,11 @@
 		ylabel = {Resets},
 		xlabel = {Transitions with store or compare [\%]},
 		ytick = {0,20000,40000,60000,80000,100000},
-		yticklabels = {0,20k, 40k, 60k, 80k, 100k}
+		yticklabels = {0,20k, 40k, 60k, 80k, 100k},
+        legend style={at={(0.02,0.98)},anchor=north west,legend columns=1},
+        legend image code/.code={
+          \draw[#1, draw=none] (0cm,-0.1cm) rectangle (0.2cm,0.1cm);
+        },
 	]
 	
 	\addplot+[boxplot,boxplot/box extend=0.28, fill=red, draw=black] table[y index=6] {\csvdata};
@@ -50,6 +58,8 @@
 	\addplot+[boxplot,boxplot/box extend=0.28, fill=red, draw=black] table[y index=6] {\csvdate};
 	\addplot+[boxplot,boxplot/box extend=0.28, fill=blue, draw=black] table[y index=8] {\csvdate};
 	\addplot+[boxplot,boxplot/box extend=0.28, fill=brown, draw=black] table[y index=10] {\csvdate};
+
+    \legend{\slstarTbl,\sllambdaTbl,\sldtTbl}		
 
 	\end{axis}
 \end{tikzpicture}

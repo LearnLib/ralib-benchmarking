@@ -6,6 +6,10 @@
 \usepackage{pgfplotstable}
 \usepackage{filecontents}
 
+\newcommand{\sldtTbl}{${SL}^{CT}$}
+\newcommand{\sllambdaTbl}{${SL}^{\lambda}$}
+\newcommand{\slstarTbl}{${SL}^{*}$}
+
 \begin{document}
 \begin{tikzpicture}
 	\pgfplotstableread[col sep=comma]{dtls-models-mc.csv}\csvdata
@@ -20,12 +24,15 @@
 		ylabel = {WCT [s]},
 		xlabel = {Transitions},
 		ytick = {0,60000,120000,180000},
-		yticklabels = {0, 60, 120, 180}
+		yticklabels = {0, 60, 120, 180},
+		legend style={at={(0.02,0.98)},anchor=north west,legend columns=1},	
 	]
 	
 	\addplot+[only marks, red, mark=+,]   table[x= sysTrans, y= slstarwctLearnAvg] {\csvdata};
 	\addplot+[only marks, blue, mark=o]  table[x= sysTrans, y= sllambdawctLearnAvg] {\csvdata};
 	\addplot+[only marks, brown, mark=x] table[x= sysTrans, y= sldtwctLearnAvg] {\csvdata};
+
+    \legend{\slstarTbl,\sllambdaTbl,\sldtTbl}	
 
 	\end{axis}
 \end{tikzpicture}
