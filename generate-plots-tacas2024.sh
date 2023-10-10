@@ -39,6 +39,10 @@ latexmk -pdf boxplot-gen-actions.tex
 latexmk -pdf boxplot-gen-registers.tex
 latexmk -pdf boxplot-gen-registers-noopt.tex
 
+latexmk -pdf plot-gen-transitions.tex
+latexmk -pdf plot-gen-registers.tex
+latexmk -pdf plot-gen-registers-noopt.tex
+
 latexmk -pdf plot-dtls-resets.tex
 latexmk -pdf plot-dtls-resets-noopt.tex
 latexmk -pdf plot-dtls-counterexamples.tex
