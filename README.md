@@ -34,7 +34,8 @@ and build RaLib, which requires a JDK and Maven to be
 installed.
 
 ```
-git submodules init
+git submodule init
+git submodule update
 ./build.sh
 ```
 
