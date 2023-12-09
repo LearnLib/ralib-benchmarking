@@ -13,5 +13,10 @@
 ./compare-learners.sh ct-datastructures fifo_size_5.register
 ./compare-learners.sh ct-datastructures fifo_size_7.register
 
+./compare-learners.sh ct-datastructures lifo_size_3.register
+./compare-learners.sh ct-datastructures lifo_size_5.register
+./compare-learners.sh ct-datastructures lifo_size_7.register
 
-
+./compare-learners.sh ct-datastructures set3
+./compare-learners.sh ct-datastructures set5
+./compare-learners.sh ct-datastructures set7

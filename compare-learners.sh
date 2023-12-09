@@ -63,7 +63,8 @@ print_count() {
             n=$((n+1))
         fi
     done
-    printf "%1d/%1d, " $n ${#files[@]}
+    printf "%1d, " $n
+#    printf "%1d/%1d, " $n ${#files[@]}
 }
 
 print_header() {
@@ -112,8 +113,8 @@ for learner in ${learners[@]}; do
         print_val "Sys. Transitions" "Sys. Transitions" $files
         print_val "Sys. Registers" "Sys. Registers" $files
         print_val "Constants" "Constants" $files
+        break
     fi
-    break
 done
 
 for phase in ${phases[@]}; do
@@ -121,6 +122,8 @@ for phase in ${phases[@]}; do
         if [ -d "results/$series/$experiment-$learner" ]; then
             files=($(ls results/$series/$experiment-$learner | grep 'log' | sed "s/\(.*\)/results\/$series\/$experiment-$learner\/\1/"))
             print_stat "$phase" $stat $files
+        else
+            printf ",,"
         fi 
     done
 done  
@@ -128,6 +131,8 @@ for learner in ${learners[@]}; do
     if [ -d "results/$series/$experiment-$learner" ]; then
         files=($(ls results/$series/$experiment-$learner | grep 'log' | sed "s/\(.*\)/results\/$series\/$experiment-$learner\/\1/"))
         print_stat "Counterexamples" "Counterexamples" $files
+    else
+        printf ",,"
     fi 
 done
 for learner in ${learners[@]}; do
@@ -136,6 +141,8 @@ for learner in ${learners[@]}; do
         print_stat "Hyp. Locations" "Hyp. Locations" $files
         print_stat "Hyp. Transitions" "Hyp. Transitions" $files
         print_stat "Hyp. Registers" "Hyp. Registers" $files
+    else
+        printf ",,,,,,"
     fi
 done
 for learner in ${learners[@]}; do
@@ -143,6 +150,8 @@ for learner in ${learners[@]}; do
         files=($(ls results/$series/$experiment-$learner | grep 'log' | sed "s/\(.*\)/results\/$series\/$experiment-$learner\/\1/"))
         print_stat "learning \[ms\]" "learning \[ms\]" $files
         print_stat "ce searching \[ms\]" "ce searching \[ms\]" $files
+    else
+        printf ",,,,"
     fi
 done
 

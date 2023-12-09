@@ -40,6 +40,7 @@ latexmk -pdf boxplot-gen-registers.tex
 latexmk -pdf boxplot-gen-registers-noopt.tex
 
 latexmk -pdf plot-gen-transitions.tex
+latexmk -pdf plot-gen-counterexamples.tex
 latexmk -pdf plot-gen-registers.tex
 latexmk -pdf plot-gen-registers-noopt.tex
 
