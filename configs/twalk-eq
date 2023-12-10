@@ -11,5 +11,5 @@ rwalk.seed.transitions=true
 rwalk.max.depth=10
 rwalk.max.runs=10000
 rwalk.reset.count=false
-rwalk.draw.uniform=false
+rwalk.draw.uniform=true
 teachers=int:de.learnlib.ralib.tools.theories.IntegerEqualityTheory
