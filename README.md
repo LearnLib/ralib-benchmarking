@@ -42,8 +42,8 @@ git submodule update
 ## Running experiments 
 
 Generally, experiments are organized in series and 
-do configurations do not specify whih learner should 
-be used and how many times experiments should be run.
+configurations do not specify which learner should 
+be used or how many times experiments should be run.
 Shell scripts exist for running individual experiments,
 series, and complete evaluations.
 
@@ -76,10 +76,10 @@ stable.
 
     The generated pdf is ```plots/tacas2024-table-results.pdf```
 
-    *Note:* The generaled pdf has more rows and columns 
+    *Note:* The generated pdf has more rows and columns 
     than the table in the paper.
 
-2. Generating plots    
+2. Generating plots
 
     this step requires latexmk and a latex distribution
     with pgfplots to be installed
@@ -123,7 +123,7 @@ Learn model of `experiments/[series]/[experiment].xml` with config
 run_series.sh [-h] -s series -i iterations -l learner
 ```
 
-Run the series of experiments specied in folder
+Run the series of experiments specified in folder
 `experiments/[series]` with specified learner.
 
 ### Running the complete evaluation (2015 RaLib Paper)
