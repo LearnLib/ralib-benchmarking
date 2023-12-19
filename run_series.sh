@@ -6,12 +6,11 @@
 
 usage="
 Usage: $(basename "$0") [-h] -s series -i iterations -l learner
-
-where:
-    -s  series folder in experiments
-    -i  iterations
-    -l learner
-    "
+  where:
+    -s series folder in experiments
+    -i number of iterations
+    -l learner to use
+"
 
 series=""
 iterations=""
@@ -51,17 +50,12 @@ echo "= $series with $learner"
 echo "= "
 echo "=================================================="
 
-for experiment in `find experiments/$series | grep .xml | sed 's/.xml//' | sed 's/.*\///'`
+for experiment in $(find experiments/"$series" | grep .xml | sed 's/.xml//' | sed 's/.*\///')
 do
 
   echo "== Running: $experiment"
-  ./run_experiment.sh -s $series -e $experiment -i $iterations -l $learner
+  ./run_experiment.sh -s "$series" -e "$experiment" -i "$iterations" -l "$learner"
 
-  ./search_logs.sh $series $experiment $learner
+  ./search_logs.sh "$series" "$experiment" "$learner"
 
 done
-
-
-
-
-
