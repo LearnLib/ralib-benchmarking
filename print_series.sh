@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ###########################################################
 #
@@ -51,12 +51,12 @@ echo "= $series with $learner"
 echo "= "
 echo "=================================================="
 
-for experiment in `find experiments/$series | grep .xml | sed 's/.xml//' | sed 's/.*\///'`
+for experiment in $(find experiments/"$series" | grep .xml | sed 's/.xml//' | sed 's/.*\///')
 do
 
   echo "== Running: $experiment"
 
-  ./search_logs.sh $series $experiment $learner
+  ./search_logs.sh "$series" "$experiment" "$learner"
 
 done
 

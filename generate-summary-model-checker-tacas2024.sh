@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 locations=("20" "30" "40" "50" "60")
 actions=("4" "14" "24" "34" "44")

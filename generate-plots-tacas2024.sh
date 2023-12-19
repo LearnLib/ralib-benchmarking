@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 ./generate-summary-model-checker-tacas2024.sh > plots/tacas2024-summary-generated.csv
 
