@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-( cd ralib && mvn package assembly:single )
+cd ralib && mvn -Dmaven.repo.local=../m2 package assembly:single
 

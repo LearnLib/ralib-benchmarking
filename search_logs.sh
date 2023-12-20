@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 series=$1
 experiment=$2
 learner=$3
