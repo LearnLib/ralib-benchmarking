@@ -1,6 +1,6 @@
 logging.level=WARNING
 export.model=true
-max.time.millis=600000
+# max.time.millis=600000
 solver=z3
 teachers=int:de.learnlib.ralib.tools.theories.IntegerEqualityTheory
 use.eqtest=true
