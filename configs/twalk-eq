@@ -1,4 +1,4 @@
-max.time.millis=600000
+# max.time.millis=600000
 use.eqtest=true
 use.ceopt=true
 use.suffixopt=true
