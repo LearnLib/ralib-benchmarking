@@ -1,13 +1,13 @@
-# RaLib Benchmarking Setup
+# RaLib Benchmarking Repository
 
-This project contains benchmark examples and scripts to
-run RaLib on these benchmarks. The project is organized
-as follows:
+This repository contains benchmark examples and scripts to run
+[RaLib](https://github.com/LearnLib/ralib) on these benchmarks.
+The repository is organized as follows:
 
 1. **benchmark problems** are located in ```benchmarks/```.
     Problems are collected from papers on RaLib, from the
     [automata wiki](https://automata.cs.ru.nl), and some
-    are generated or manually created for this project.
+    are generated or manually created.
 2. **configurations** of RaLib are located in ```configs/```.
     The different configurations are used in different
     series of experiments and specify aspects of the
@@ -16,7 +16,7 @@ as follows:
     teachers/theories for types, etc.).
 3. **experiments** are organized in series in ```experiments/```.
     Series combine benchmark problems with a configuration.
-    The different series in this project originate from
+    The different series in this repository originate from
     multiple papers on RaLib / register automata learning.
 4. **results** from running experiments will be stored in
     ```results/```. Results include logs and models from
@@ -30,44 +30,56 @@ as follows:
 
 ## RaLib Installation
 
-To install RaLib, you have to initialize the submodule
-and build RaLib, which requires a JDK and Maven to be
-installed.
+To install RaLib on a machine with internet access, you have
+to initialize the submodule with the following commands.
+Note that the TACAS 2024 artifact already contains RaLib's
+code, so you can skip this initial step and simply execute
+the build script.
+
+```
+git submodule init
+git submodule update
+```
+
+You can then build RaLib with the following command,
+which requires a JDK and Maven to be installed.
 
 ```
 ./build.sh
 ```
 
-## Running experiments
+## Running Experiments
 
-Generally, experiments are organized in series and
+Generally, experiments are organized in series, and
 configurations do not specify which learner should
 be used or how many times experiments should be run.
 Shell scripts exist for running individual experiments,
 series, and complete evaluations.
 
+Note that most of RaLib's algirithms use randomization,
+so concrete results typically vary for every execution.
+Thus, some of the scripts below run a number of
+iterations and report averages and standard deviations.
+
 ### Experiments for the evaluation of CT-based learners (TACAS'24)
 
 This section describes how one can run the experiments
-that are reported in the TACAS 2024 submission.
-Concrete results may vary a little bit for every
-execution due to randomization but trends should be
-stable.
+that are reported in the TACAS 2024 paper.
 
-1. Running experiments from TACAS 2024 submission
+1. Running experiments from TACAS 2024 paper
 
     ```
-    ./run-experiments-model-checker-tacas2024.sh
     ./run-experiments-with-ce-search-tacas2024.sh
+    ./run-experiments-model-checker-tacas2024.sh
     ./run-big-experiments-with-ce-search-tacas2024.sh
     ```
 
     results (logs and models) can be found in ```results/```.
-    The expected running times are ca. 3 hours, less than ten
-    minutes, and (on mid-end machines) over a day, respectively.
+    The expected running times are between 5 and 15 minutes,
+    few hours, and (on mid-end machines) over a day,
+    respectively.
 
-
-2. Generating table in TACAS 2024 submission
+2. Generating table in TACAS 2024 paper
 
     this step requires latexmk and a latex distribution
     to be installed
@@ -147,4 +159,3 @@ all experiments that are to be run as part of the evaluation.
 ```
 
 Searches for `search_term` in the logs from all iterations.
-
