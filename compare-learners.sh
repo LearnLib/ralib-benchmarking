@@ -50,7 +50,7 @@ print_stat() {
     if [ $n -gt 0 ]; then
         avg=$((sum/n))
         std=$(std_dev "${vals[@]}" | sed "s/,/\./")
-        printf "%5d, %6.2f, " $avg $std
+        LC_NUMERIC=C printf "%5d, %6.2f, " $avg $std
     else
         printf ", , "
     fi
