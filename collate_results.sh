@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 inputs=${1:-0}
 
 series=($(ls results))

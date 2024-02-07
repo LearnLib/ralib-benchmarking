@@ -18,3 +18,7 @@ results/*
 plots/*.csv
 plots/*.dvi
 plots/*.pdf
+
+m2/
+packages/
+*-repro.zip

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 experiment=$1
 inputs=$2
 
