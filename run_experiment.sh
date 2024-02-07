@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ###########################################################
 #
@@ -55,12 +55,12 @@ results=results/$series/$experiment-$learner
 
 # PREPARE FILES AND DIRS
 
-rm -Rf $results
-mkdir -p $results
+rm -Rf "$results"
+mkdir -p "$results"
 
 # EXECUTE
 
-for c in `seq 1 $iterations`
+for c in $(seq 1 "$iterations")
 do
 
   rm -Rf model.xml
@@ -69,10 +69,10 @@ do
 
   echo "Running: $c"
 
-  for r in `seq 1 3`
+  for r in $(seq 1 3)
   do
 
-    java -Xmx7G -ea -jar ./ralib/target/ralib-0.1-SNAPSHOT-jar-with-dependencies.jar iosimulator -f $config learner=$learner target=$model > learn.log 2>&1
+    java -Xmx7G -ea -jar ./ralib/target/ralib-0.1-SNAPSHOT-jar-with-dependencies.jar iosimulator -f "$config" learner="$learner" target="$model" > learn.log 2>&1
     if [ "0" == `ls hs_err_pid* 2> /dev/null | wc -l` ]; then 
       break;
     fi
@@ -81,19 +81,15 @@ do
   done
 
   if [ "0" == `less learn.log | grep "= STOP =" | wc -l` ]; then 
-    seed=`less learn.log | grep "RANDOM SEED"`
+    seed=$(less learn.log | grep "RANDOM SEED")
     echo "Problem with iteration $c, $seed, $learner."
   fi
 
   less learn.log | grep "Last EQ Test found a counterexample"
 
-  mv learn.log $results/learn-$learner-$c.log
-  mv model.xml $results/model-$learner-$c.xml
+  mv learn.log "$results"/learn-"$learner"-"$c".log
+  mv model.xml "$results"/model-"$learner"-"$c".xml
   rm -Rf hs_err_pid*
 
 done
-
-
-
-
 
